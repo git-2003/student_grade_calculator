@@ -1,1 +1,47 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+class grade_calculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int no_of_subjects;
+        System.out.println("Enter the no of subjects");
+        no_of_subjects = input.nextInt();
+        int[] marks = new int[no_of_subjects];
+        for (int i = 0; i < no_of_subjects; i++) {
+            int a = i + 1;
+            System.out.println("  Marks of" + a + "subject is" + ":");
+            marks[i] = input.nextInt();
+        }
+            int totalmarks = 0;
+            for (int mark : marks) {
+                totalmarks += mark;
+            }
+            int total_subject_marks = no_of_subjects * 100;
+
+            double average_percentage = (((double) totalmarks / total_subject_marks) * 100);
+            DecimalFormat decimalFormat = new DecimalFormat("0.00");
+            String formattedAveragePercentage = decimalFormat.format(average_percentage);
+            System.out.println("Your average percentage is :" + formattedAveragePercentage + "%");
+            char grade;
+
+            if (average_percentage >= 90) {
+                grade = 'A';
+                System.out.println("Very good.Keep it up! ");
+            } else if (average_percentage >= 80) {
+                grade = 'B';
+                System.out.println("Good ");
+            } else if (average_percentage >= 70) {
+                grade = 'C';
+                System.out.println("Keep Doing ");
+            } else if (average_percentage >= 60) {
+                grade = 'D';
+                System.out.println("Do more study");
+            } else {
+                grade = 'F';
+                System.out.println("You are failed! Better luck next time! ");
+            }
+
+
+        }
+    }
 
